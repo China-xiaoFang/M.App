@@ -2,7 +2,9 @@
   "ProjectInfo": {
     "Project_Name": "Mr.Fang网络",
     "Version": "V1.1.0",
-    "ApiRequestUrl": "http://adminapi.mchen.vip",
+    "HttpUrl": "http://localhost:2000",
+    "HttpsUrl": "https://mchen.vip",
+    "ApiRequestUrl": "https://adminapi.mchen.vip",
     "RecordInfo": "陇ICP备19002874号",
     "InfoHeader": "【Mr.Fang网络】温馨提示："
   },
@@ -10,16 +12,19 @@
     "ProjectInfo_Comment": "项目信息",
     "Project_Name_Comment": "名称",
     "Version_Comment": "版本",
+    "HttpUrl_Comment": "当前HttpUrl",
+    "HttpsUrl_Comment": "当前HttpsUrl",
     "ApiRequestUrl_Comment": "API请求地址",
     "RecordInfo_Comment": "备案信息",
     "InfoHeader_Comment": "提示框头部信息"
   },
   "JSFileInfo": {
-    "ConfigurationJSFile": "js/appConfigurationSeiver.json",
-    "HttpRequestSeiverJSFile": "plugins/httpRequest/httpRequestSeiver.js",
+    "ConfigurationJSFile": "assets/js/appConfigurationSeiver.json",
+    "HttpRequestSeiverJSFile": "assets/plugins/httpRequest/httpRequestSeiver.js",
+    "ZhaiMusicsJS": "宅音乐js引用  <script id=\"ilt\" src=\"https://player.ilt.me/player/js/player.js\" key=\"98ffa0f27310403e85637d328e6ba248\"></script>",
     "DefaultJSFile": [
-      "plugins/jquery/jquery-3.4.1.min.js",
-      "plugins/layer/layer.js"
+      "assets/plugins/jquery/jquery-3.4.1.min.js",
+      "assets/plugins/layer/layer.js"
     ]
   },
   "JSFileInfo_Comment": {
@@ -28,8 +33,8 @@
     "HttpRequestSeiverJSFile_Comment": "默认Http请求服务文件信息",
     "DefaultJSFile_Comment": {
       "DefaultJSFile_Comment": "默认加载的JS文件信息",
-      "plugins/jquery/jquery-3.4.1.min.js_Comment": "默认jQuery文件",
-      "plugins/layer/layer.js_Comment": "默认layer文件"
+      "assets/plugins/jquery/jquery-3.4.1.min.js_Comment": "默认jQuery文件",
+      "assets/plugins/layer/layer.js_Comment": "默认layer文件"
     }
   }
 }

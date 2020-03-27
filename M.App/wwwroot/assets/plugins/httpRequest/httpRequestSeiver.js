@@ -79,10 +79,10 @@ function httpRequest(obj, successFun, errorFun, async = true, apiRequest = true)
 }
 
 /**得到默认配置信息文件 */
-function getappConfigurationSeiver() {
+function getAppConfigurationSeiver() {
     httpRequest({
         method: "get",
-        url: "js/appConfigurationSeiver.json",
+        url: "assets/js/appConfigurationSeiver.json",
     }, function (res) {
         // 配置信息
         appConfigurationServer = res;
@@ -96,11 +96,29 @@ function getappConfigurationSeiver() {
             script.src = hostUrlPath + '/' + appConfiguration.JSFileInfo.DefaultJSFile[jsFile];
             headHtml.appendChild(script);
         }
+        // 添加访问日志
+        addAccessHistoryLog();
     }, function (res, status, statusText) {
     }, true, false);
 }
 
-// 配置信息
-getappConfigurationSeiver();
+/**添加访问日志 */
+function addAccessHistoryLog() {
+    httpRequest({
+        method: "post",
+        url: "AccessHistoryLogAppService/CreateAccessHistoryLog",
+        data: {
+            "deviceInfo": Navigator.appVersion,
+            "url": currentUrlPath
+        }
+    }, function (res) {
+    }, function () {
+    });
+}
 
-// 浏览器信息
+// 配置信息
+getAppConfigurationSeiver();
+
+
+
+    // 浏览器信息

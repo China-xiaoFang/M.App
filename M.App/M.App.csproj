@@ -16,9 +16,8 @@
 
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\" />
-    <Folder Include="wwwroot\musics\" />
-    <Folder Include="wwwroot\plugins\jquery\" />
+    <Folder Include="wwwroot\assets\images\" />
+    <Folder Include="wwwroot\assets\musics\" />
   </ItemGroup>
 
 
