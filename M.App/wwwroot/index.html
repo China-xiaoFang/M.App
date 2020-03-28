@@ -2,15 +2,112 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>引导页</title>
+    <link href="assets/css/index.css" rel="stylesheet" />
     <script src="assets/js/javaScriptService.js"></script>
-    <script>
-        window.onload = function () {
-            // loadMusicsPlayer();
-        }
-    </script>
 </head>
 <body>
-   
+    <div id="wrapper">
+        <div id="bg"></div>
+        <div id="overlay"></div>
+        <div id="main">
+            <!-- Header -->
+            <header id="header">
+                <h1 id="webSiteName"></h1>
+                <p id="webSiteCopywriting"></p>
+                <nav>
+                    <ul class="mom" id="webSiteGuidePagesMenuInfo">
+                    </ul>
+                </nav>
+                <br>
+            </header>
+            <!-- Footer -->
+            <footer id="footer">
+            </footer>
+        </div>
+    </div>
+    <script>
+        /**背景图片信息 */
+        var backGroundImageData;
+        var backGroundImageMaxIndexOf = 100;
+        var backGroundImageMinIndexOf = 0;
+        /**文案信息 */
+        var copywritingInfoData;
+        /**引导页菜单信息 */
+        var guidePagesMenuInfoData;
+        window.onload = function () {
+            document.body.classList.remove('is-preload');
+            loadMusicsPlayer();
+            // 设置站点名称
+            $("#webSiteName")[0].innerText = appConfiguration.ProjectInfo.Project_Name;
+
+            // 拿到所以默认的背景图片
+            httpRequest({
+                method: "GET",
+                url: "BackGroundImageInfoAppService/GetAllBackGroundImageInfo"
+            }, function (result) {
+                backGroundImageData = result;
+            });
+            getCopywritingInfo();
+            getGuidePagesMenuInfo();
+            dynamicChangeBackGroundImage();
+        }
+        window.ontouchmove = function () {
+            return false;
+        }
+        window.onorientationchange = function () {
+            document.body.scrollTop = 0;
+        }
+
+        /**得到文案信息 */
+        function getCopywritingInfo() {
+            httpRequest({
+                method: "GET",
+                url: "CopywritingInfoAppService/GetAllCopywritingInfo"
+            }, function (result) {
+                copywritingInfoData = result;
+                dynamicChangeCopywritingInfo();
+            });
+        }
+
+        /**得到引导页菜单信息 */
+        function getGuidePagesMenuInfo() {
+            httpRequest({
+                method: "GET",
+                url: "GuidePagesMenuInfoAppService/GetAllGuidePagesMenuInfo"
+            }, function (result) {
+                guidePagesMenuInfoData = result;
+                // 动态添加引导菜单信息
+                for (var i = 0; i < guidePagesMenuInfoData.length; i++) {
+                    $("#webSiteGuidePagesMenuInfo").append('<li><a href="' +
+                        guidePagesMenuInfoData[i].menuUrl +
+                        '" title="' +
+                        guidePagesMenuInfoData[i].menuName +
+                        '">' +
+                        guidePagesMenuInfoData[i].menuName +
+                        '</a></li>');
+                }
+            });
+        }
+
+        /**动态改变背景图片 */
+        function dynamicChangeBackGroundImage() {
+            $("#bg").fadeOut(3000, function () {
+                $("#bg").css("background-image",
+                    "url('" +
+                    backGroundImageData[
+                        getRandom(backGroundImageMaxIndexOf, backGroundImageMinIndexOf)
+                        //parseInt(Math.random() * (backGroundImageMaxIndexOf - backGroundImageMinIndexOf) + backGroundImageMinIndexOf)
+                    ].bgUrl + "')").fadeIn(3000);
+            });
+            setTimeout(dynamicChangeBackGroundImage, 1000 * 60);
+        }
+
+        /**动态改变文案信息 */
+        function dynamicChangeCopywritingInfo() {
+            $("#webSiteCopywriting")[0].innerText = copywritingInfoData[getRandom(copywritingInfoData.length, 0)].content;
+            setTimeout(dynamicChangeCopywritingInfo, 1000 * 60);
+        }
+    </script>
 </body>
 </html>

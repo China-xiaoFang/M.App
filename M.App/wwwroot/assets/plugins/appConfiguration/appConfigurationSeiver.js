@@ -9,7 +9,7 @@
 
 
 /**配置信息 */
-appConfiguration = {
+var appConfiguration = {
     // 站点信息
     ProjectInfo: {
         // 站点名称
@@ -42,6 +42,26 @@ appConfiguration = {
         ]
     }
 };
+
+var webSiteDate = new Date();
+
+// 设置Title加站点名称
+var webSiteTitle = document.getElementsByTagName("title").item(0);
+webSiteTitle.text = appConfiguration.ProjectInfo.Project_Name + "-" + webSiteTitle.text;
+
+// 备案信息
+var webSiteFooter = document.getElementById("footer");
+webSiteFooter.innerHTML = '<small class="copyright">' +
+    'Copyright&nbsp;&copy 2019 - ' +
+    webSiteDate.getFullYear() +
+    '&nbsp;&nbsp;<a href="https://mchen.vip">' +
+    appConfiguration.ProjectInfo.Project_Name
+    + '</a>&nbsp;&nbsp;版权所有&nbsp;&nbsp;|&nbsp;&nbsp;' +
+    '<a href="http://www.beian.miit.gov.cn/" target="_blank">' +
+    appConfiguration.ProjectInfo.RecordInfo +
+    '</a>' +
+    '</small>';
+
 
 /**加载jQuery文件 */
 function loadJQuery() {
@@ -88,4 +108,28 @@ loadJQuery();
 loadDefaultJS();
 loadHttpRequestServer();
 
-// 备案信息
+
+/**方法封装 */
+/**
+ * 错误信息提示
+ * @param {any} msg
+ */
+function errorInfo(msg) {
+    layer.msg(msg);
+}
+/**
+ * 成功信息提示
+ * @param {any} msg
+ */
+function successInfo(msg) {
+    layer.msg(msg);
+}
+/**
+ * 得到随机数（包括上限和下限）
+ * @param {any} maxIndexOf 上限
+ * @param {any} minIndexOf 下限
+ */
+function getRandom(maxIndexOf, minIndexOf) {
+    // return parseInt(Math.random() * (maxIndexOf - minIndexOf) + minIndexOf);
+    return Math.floor(Math.random() * (maxIndexOf - minIndexOf + 1)) + minIndexOf; 
+}

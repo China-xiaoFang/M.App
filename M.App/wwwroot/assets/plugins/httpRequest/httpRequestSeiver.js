@@ -70,7 +70,7 @@ function httpRequest(obj, successFun, errorFun, async = true, apiRequest = true)
             console.log(xmlHttp);
             if (xmlHttp.status == 200) {
                 // 请求成功执行的回调函数
-                successFun(xmlHttp);
+                successFun(xmlHttp.response, xmlHttp);
             } else {
                 // 请求失败执行的回调函数
                 errorFun(xmlHttp, xmlHttp.status, xmlHttp.statusText);
