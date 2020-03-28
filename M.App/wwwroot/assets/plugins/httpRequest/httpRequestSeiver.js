@@ -1,4 +1,14 @@
-﻿/**
+﻿/*
+ * Http请求服务文件
+ * Author：Mr.Fang
+ * QQ：2875616188
+ * Version：1.1.0
+ * WebSite：https://mchen.vip
+ * Time：2020.3.27
+ */
+
+
+/**
  * HTTP请求服务
  * @param {any} obj 请求方式、路径、参数。实例：obj: {method:"get",url:"",data:{},dataType:""};
  * @param {any} successFun 请求成功回调方法
@@ -78,47 +88,17 @@ function httpRequest(obj, successFun, errorFun, async = true, apiRequest = true)
     }
 }
 
-/**得到默认配置信息文件 */
-function getAppConfigurationSeiver() {
-    httpRequest({
-        method: "get",
-        url: "assets/js/appConfigurationSeiver.json",
-    }, function (res) {
-        // 配置信息
-        appConfigurationServer = res;
-        appConfiguration = res.response;
-        // 配置js文件引用
-        var headHtml = document.getElementsByTagName("head").item(0);
-        for (var jsFile in appConfiguration.JSFileInfo.DefaultJSFile) {
-            var script = document.createElement("script");
-            script.async = false;
-            //script.type = "text/javascript";
-            script.src = hostUrlPath + '/' + appConfiguration.JSFileInfo.DefaultJSFile[jsFile];
-            headHtml.appendChild(script);
-        }
-        // 添加访问日志
-        addAccessHistoryLog();
-    }, function (res, status, statusText) {
-    }, true, false);
-}
-
 /**添加访问日志 */
 function addAccessHistoryLog() {
     httpRequest({
-        method: "post",
+        method: "POST",
         url: "AccessHistoryLogAppService/CreateAccessHistoryLog",
         data: {
-            "deviceInfo": Navigator.appVersion,
-            "url": currentUrlPath
+            deviceInfo: navigator.userAgent,
+            url: currentUrlPath
         }
     }, function (res) {
     }, function () {
     });
 }
-
-// 配置信息
-getAppConfigurationSeiver();
-
-
-
-    // 浏览器信息
+// addAccessHistoryLog();

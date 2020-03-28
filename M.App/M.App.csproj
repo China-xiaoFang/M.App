@@ -16,7 +16,6 @@
 
 
   <ItemGroup>
-    <Folder Include="wwwroot\assets\images\" />
     <Folder Include="wwwroot\assets\musics\" />
   </ItemGroup>
 
