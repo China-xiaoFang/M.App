@@ -17,11 +17,26 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\assets\musics\" />
+    <Folder Include="wwwroot\website\game\yxmb\34\_img\uni\stat\" />
+    <Folder Include="wwwroot\website\game\yxmb\37\.svn\pristine\" />
+    <Folder Include="wwwroot\website\game\yxmb\37\.svn\tmp\" />
+    <Folder Include="wwwroot\website\game\yxmb\41\_img\bg\default\" />
+    <Folder Include="wwwroot\website\game\yxmb\41\_img\sexy\endPic\" />
+    <Folder Include="wwwroot\website\game\yxmb\45\css\" />
+    <Folder Include="wwwroot\website\game\yxmb\53\obj\Debug\TempPE\" />
+    <Folder Include="wwwroot\website\game\yxmb\79\img\images\" />
   </ItemGroup>
 
 
   <ItemGroup>
     <None Include="wwwroot\index.html" />
+    <None Include="wwwroot\website\game\yxmb\37\.svn\entries" />
+    <None Include="wwwroot\website\game\yxmb\37\.svn\format" />
+    <None Include="wwwroot\website\game\yxmb\37\.svn\wc.db" />
+    <None Include="wwwroot\website\game\yxmb\37\.svn\wc.db-journal" />
+    <None Include="wwwroot\website\game\yxmb\53\ImagePuzzle.csproj" />
+    <None Include="wwwroot\website\game\yxmb\53\ImagePuzzle.csproj.user" />
+    <None Include="wwwroot\website\game\yxmb\53\ImagePuzzle.sln" />
   </ItemGroup>
 
 

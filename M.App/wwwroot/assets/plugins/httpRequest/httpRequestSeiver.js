@@ -101,4 +101,4 @@ function addAccessHistoryLog() {
     }, function () {
     });
 }
-// addAccessHistoryLog();
+addAccessHistoryLog();
