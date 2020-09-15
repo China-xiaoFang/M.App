@@ -8,6 +8,13 @@
     <StartupObject />
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="wwwroot\assets\musics\**" />
+    <Content Remove="wwwroot\assets\musics\**" />
+    <EmbeddedResource Remove="wwwroot\assets\musics\**" />
+    <None Remove="wwwroot\assets\musics\**" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
@@ -16,7 +23,6 @@
 
 
   <ItemGroup>
-    <Folder Include="wwwroot\assets\musics\" />
     <Folder Include="wwwroot\website\game\yxmb\34\_img\uni\stat\" />
     <Folder Include="wwwroot\website\game\yxmb\37\.svn\pristine\" />
     <Folder Include="wwwroot\website\game\yxmb\37\.svn\tmp\" />

@@ -3,7 +3,7 @@
  * Author：Mr.Fang
  * QQ：2875616188
  * Version：1.1.0
- * WebSite：https://mchen.vip
+ * WebSite：https://fanghua.host
  * Time：2020.3.27
  */
 
@@ -17,9 +17,9 @@ var appConfiguration = {
         // 站点版本
         Version: "V1.1.0",
         // 站点Url
-        Url: "https://mchen.vip",
+        Url: "https://fanghua.host",
         // APIUrl
-        ApiRequestUrl: "https://adminapi.mchen.vip",
+        ApiRequestUrl: "https://adminapi.fanghua.host",
         // 备案信息
         RecordInfo: "陇ICP备19002874号",
         // 提示框头部信息
@@ -54,7 +54,7 @@ var webSiteFooter = document.getElementById("footer");
 webSiteFooter.innerHTML = '<small class="copyright">' +
     'Copyright&nbsp;&copy 2019 - ' +
     webSiteDate.getFullYear() +
-    '&nbsp;&nbsp;<a href="https://mchen.vip">' +
+    '&nbsp;&nbsp;<a href="https://fanghua.host">' +
     appConfiguration.ProjectInfo.Project_Name
     + '</a>&nbsp;&nbsp;版权所有&nbsp;&nbsp;|&nbsp;&nbsp;' +
     '<a href="http://www.beian.miit.gov.cn/" target="_blank">' +
